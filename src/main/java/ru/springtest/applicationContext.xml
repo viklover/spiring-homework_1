@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation=" http://www.springframework.org/schema/beans
+                            https://www.springframework.org/schema/beans/spring-beans.xsd
+                            http://www.springframework.org/schema/context
+                            https://www.springframework.org/schema/context/spring-context.xsd">
+
+<!--    <context:property-placeholder location="classpath:printer.properties"/>-->
+    <context:component-scan base-package="ru.springtest"/>
+
+    <bean id="ext1"
+          class="ru.springtest.Ext1">
+    </bean>
+
+    <bean id="ext2"
+          class="ru.springtest.Ext2">
+    </bean>
+
+    <bean id="base"
+          class="ru.springtest.Base">
+        <property name="modules">
+            <array value-type="ru.springtest.Modification">
+                <ref bean="ext1"/>
+                <ref bean="ext2"/>
+            </array>
+        </property>
+    </bean>
+
+<!--    <bean id="printer"-->
+<!--          class="com.stain.spring11.Printer"-->
+<!--            init-method="doInit"-->
+<!--            destroy-method="dest"-->
+<!--            scope="singleton">-->
+<!--&lt;!&ndash;        <constructor-arg value="This is test222!"/>&ndash;&gt;-->
+<!--&lt;!&ndash;        <constructor-arg ref="monoCart"/>-->
+<!--&ndash;&gt;-->
+<!--        <property name="cart" ref = "monoCart"/>-->
+<!--        <property name="testMessage" value="${printer.testMessage}"/>-->
+
+<!--    </bean>-->
+
+</beans>
+
